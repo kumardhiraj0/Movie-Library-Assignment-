@@ -1,0 +1,10 @@
+#container{
+    width: 800px;
+    margin: 25px auto;
+    background-color: goldenrod;
+    padding: 10px;
+}
+h1{
+    align-items: center;
+    text-align: center;
+}
