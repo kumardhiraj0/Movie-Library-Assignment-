@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 400px;
+            height: 450px;
+            background-color: goldenrod;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+            align-content: center;
+        }
+
+        .child {
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+            margin: 10px;
+        }
+
+        button {
+            width: 100px;
+            margin: auto;
+            text-align: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+    </div>
+
+    <button id="changeColor">Change Color</button>
+    <button id="addChild">Add Child</button>
+    <button id="removeChild">Remove Child</button>
+
+</body>
+<script>
+    const container = document.getElementById("container");
+    const changeColorBtn = document.getElementById("changeColor");
+    const addChildBtn = document.getElementById("addChild");
+    const removeChildBtn = document.getElementById("removeChild");
+
+    changeColorBtn.addEventListener("click", function () {
+        const colors = ["blue", "red", "green", "purple", "orange","pink","voilet","brown"];
+        const randomIndex = Math.floor(Math.random() * colors.length);
+        //console.log(randomIndex)
+        container.style.backgroundColor = colors[randomIndex];
+    });
+
+    addChildBtn.addEventListener("click", function () {
+        const child = document.createElement("div");
+        child.classList.add("child");
+        container.appendChild(child);
+    });
+
+    removeChildBtn.addEventListener("click", function () {
+        const children = container.children;
+       // console.log(children)
+        if (children.length > 0) {
+            container.removeChild(children[children.length - 1]);
+        }
+    });
+
+
+</script>
+
+</html>

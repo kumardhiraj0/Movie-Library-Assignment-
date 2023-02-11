@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      .search-container {
+        display: flex;
+        align-items: center;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        margin-right: 10px;
+        width: 60%;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .movie-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      .poster {
+        width: 200px;
+        height: 300px;
+      }
+
+      .movie-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 50px;
+      }
+
+      .title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .release-year {
+        font-size: 16px;
+        margin-top: 10px;
+      }
+
+      .imdb-rating {
+        font-size: 16px;
+        margin-top: 10px;
+      }
+
+      .cast-and-crew {
+        font-size: 16px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="search-container">
+        <input type="text" id="movie-title" />
+        <button id="search-button">Search</button>
+      </div>
+      <div id="movie-data"></div>
+    </div>
+
+    <script>
+      const apiKey = '9455a7c';
+      const searchButton = document.querySelector('#search-button');
+      const movieTitleInput = document.querySelector('#movie-title');
+      const movieDataDiv = document.querySelector('#movie-data');
+
+      const getMovieData = movieTitle => {
+        return fetch(`http://www.omdbapi.com/?apikey=${apiKey}&t=${movieTitle}`)
+          .then(response => response.json());
+      };
+
+      searchButton.addEventListener('click', () => {
+        const movieTitle = movieTitleInput.value;
+        getMovieData(movieTitle)
+          .then(data => {
+            if (data.Response === 'True') {
+              const movie = data;
+              const posterUrl = `http://img.omdbapi.com/?apikey=${apiKey}&i=${movie.imdbID}`;
+              movieDataDiv.innerHTML = `
+                <div class="movie-container">
+                  <img class="poster" src="${posterUrl}" alt="${movie.Title} poster" />
+                  <div class="movie-details">
+                    <div class="title">${movie.Title}</div>
+                    <div class="release-year">Released in ${movie.Year}</div>
+                    <div class="imdb-rating">IMDB Rating: ${movie.imdbRating}</div>
+                    <div class="cast-and-crew">Cast: ${movie.Actors}</div>
+                  </div>
+                </div>
+              `;
+            } else {
+              movieDataDiv.innerHTML = '<p>Movie not found. Please try again.</p>';
+            }
+          });
+      });
+    </script>
+  </body>
+</html>

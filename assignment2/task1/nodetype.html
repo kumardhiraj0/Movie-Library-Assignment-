@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <h1>This is 1st heading tag</h1>
+        <h2>This is 2nd heading tag</h2>
+
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel, ad.</p>
+        <!-- My personal comment goes here..  -->
+        <div>Comments are considered comment nodes.</div>
+
+        <p>This is paragraph tag Lorem ipsum dolor sit amet.</p>
+        <p id="test"></p>
+
+        <script>
+        const nodes = document.body.childNodes;
+        let text = "";
+        for (let i = 0; i < nodes.length; i++) {
+        text += "Node-type:-" + nodes[i].nodeType + " " + "Node-name :- " + nodes[i].nodeName + "<br>";
+        }
+        document.getElementById("test").innerHTML = text;
+        </script>
+</body>
+</html>
