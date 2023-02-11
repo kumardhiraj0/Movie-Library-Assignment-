@@ -1,0 +1,17 @@
+task1
+1.Identify different types of nodes in a DOM model and retrieve them.
+2.Take a HTML document with different elements and comments and text.
+3.Get the nodes present in the document.
+4.Identify the relationships between each and every node.
+
+task2
+1.DOM Manipulation (adding functionality to HTML elements)
+2.Create a rectangular container.
+3.Create three buttons below the container named as changeColor, addChild and remove Child (buttons).
+4.Give css to the container like width, height, and background color etc.
+5.Retrieve the container and the button objects and give functionality to the buttons.
+6.When clicked on changeColor button, the color of the container should be changed.
+7.When clicked on addChild button, a new square box should be added inside the parent container (rectangular box which is created earlier).
+8.The parent container should have flex property.
+9.When clicked on the removeChild button, the last added square box child should be removed/disappeared.
+
