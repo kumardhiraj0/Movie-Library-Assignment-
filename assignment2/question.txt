@@ -15,3 +15,12 @@ task2
 8.The parent container should have flex property.
 9.When clicked on the removeChild button, the last added square box child should be removed/disappeared.
 
+task3
+Fetch data with an API
+1.This task is for fetching movies data by searching in a search bar.
+2.Create a search bar and a search button to search any movie by its title.
+3.Use this api http://www.omdbapi.com/?apikey=[yourkey]&, generate your api key by signing up.
+4.Call the above api with the title parameter when searched.
+5.Use promises and get data from the api and present it in a div below the search bar.
+6.Div should contain movie poster, movie title,  year of release, IMDB rating, cast and crew.
+7.API to get poster images of movies http://img.omdbapi.com/?apikey=[yourkey]&.
