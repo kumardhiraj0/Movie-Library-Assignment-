@@ -1,0 +1,11 @@
+#issueList{
+    margin: auto;
+    width: 600px;
+    background-color: rgb(172, 172, 172);
+}
+#issueList ol{
+    padding-left: 20px;
+}
+#issueList button{
+    margin: 5px;
+}
